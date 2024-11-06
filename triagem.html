@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem</title>
+    <style>
+       
+        .pass { color: green; }
+        .fail { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Informações do Paciente</h2>
+
+    <!-- Formulário para entrada de dados -->
+ 
+ Nome Completo: <input id="nome"><br><br>
+ CPF (Somente Números): <input id="cpf"><br><br>
+ Sintomas:<br> <input id="sintomas" style="width: 300px; height: 100px;"> <br><br>
+<button onclick="verificarCadastro()">Verificar</button>
+<h3>Resultados:</h3>
+<div id="resultados"></div>
+
+    <script>
+        // Função para verificar nome, cpf e sintomas
+        function verificarCadastro() {
+            // Limpar resultados anteriores
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = '';
+
+            // Obter valores de entrada
+            const nome =document.getElementById('nome').value;
+            const cpf =document.getElementById('cpf').value;
+            const sintomas =document.getElementById('sintomas').value;
+
+            // Validar nome 
+            if (nome.length >= 3) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ Nome válido</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ Nome inválido (Deve inserir o nome completo)</p>';
+            }
+
+            // Validar CPF 
+            if (cpf.length === 11) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ CPF válido</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ CPF inválido (Deve conter 11 caracteres)</p>';
+            }
+            // Validar sintomas
+            if (sintomas.length >= 5 && sintomas.length <= 100) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ Informações válidas</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ Informações inválidas (deve conter entre 5 e 100 caracteres)</p>';
+            }
+        
+        }
+    </script>
+</body>
+</html>
