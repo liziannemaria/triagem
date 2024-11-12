@@ -1,0 +1,12 @@
+body {
+    background-image: url(/imagem/imagem.jpg);
+    background-position: center ;
+    background-size: cover;
+    background-attachment: fixed;
+}
+input {
+    padding: 10px;
+    border: 2px solid #af4c5c; /* Cor da borda */
+    border-radius: 15px; /* Arredonda as bordas */
+    width: 300px;
+}
